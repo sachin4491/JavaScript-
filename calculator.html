@@ -1,0 +1,47 @@
+<html>
+ <head>
+ <script>
+    var n1,n2,r;
+    function add(){
+        n1=Number(document.myform.n1.value);
+        n2=Number(document.myform.n2.value);
+        r=n1+n2;
+        document.myform.result.value=r;
+    }
+    function sub(){
+        n1=Number(document.myform.n1.value);
+        n2=Number(document.myform.n2.value);
+        r=n1-n2;
+        document.myform.result.value=r;
+    }
+    function mul(){
+        n1=Number(document.myform.n1.value);
+        n2=Number(document.myform.n2.value);
+        r=n1*n2;
+        document.myform.result.value=r;
+    }
+    function div(){
+        n1=Number(document.myform.n1.value);
+        n2=Number(document.myform.n2.value);
+        r=n1/n2;
+        document.myform.result.value=r;
+    }
+ </script>
+ </head>
+  <body>
+    <h1 align="center">arithmetic operator</h1>
+    <hr color="red">
+    <form name="myform">
+        <center>
+            number1:<input type="text" name="n1" value="10"><br><br>
+            number2:<input type="text" name="n2" value="4"><br><br>
+            <input type="button" value="add" onclick="add()">
+            <input type="button" value="sub" onclick="sub()">
+            <input type="button" value="mul" onclick="mul()">
+            <input type="button" value="div" onclick="div()"><br><br>
+            result is :
+            <input type="text" name="result" value="">
+        </center>
+    </form>
+  </body>
+</html>

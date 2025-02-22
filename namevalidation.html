@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name and Age Validation</title>
+</head>
+<body>
+    <h1>Validate Your Name and Age</h1>
+    <label for="name">Name :</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <p id='message1'></p>
+    <label for="age">Age</label>
+    <input type="text" id="age" placeholder="Enter your age">
+    <p id='message2'></p>
+    <button onclick="validate()">Validate</button>
+   
+
+    <script>
+        function validate() {
+            var s=0;
+            const name = document.getElementById('name').value;
+            const nameRegex = /^[a-zA-Z\s'-]+$/;
+            const message1 = document.getElementById('message1');
+
+            if (nameRegex.test(name)&&name.length>=3) {
+                
+                message1.innerHTML = 'Valid name!';
+                message1.style.color = 'green';
+            
+            } else {
+                message1.innerHTML = 'Invalid name.';
+                message1.style.color = 'red';
+            }
+        
+
+       
+            const age = document.getElementById('age').value;
+            const message2 = document.getElementById('message2');
+
+            if (age === '') {
+                message2.innerHTML = 'Age is required.';
+                message2.style.color = 'red';
+               
+            } else if (!isNaN(age) && age >= 6 && age <= 120) {
+                message2.innerHTML = 'Valid age!';
+                message2.style.color = 'green';
+               
+            } else {
+                message2.innerHTML = 'Invalid age.';
+                message2.style.color = 'red';
+                
+            }
+            
+        }
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            //justify-content: center;
+            //height: 500px;
+            //margin: 0;
+        }
+
+        .form-box {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+            max-width: 300px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+           margin:auto;
+        }
+    </style>
+</head>
+<body class="body">
+    <h1>NEW ACCOUNT</h1>
+    <div class="form-box">
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" size="40">
+            <p id="message1"></p>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" size="40">
+            <p id="message2"></p>
+
+            <label for="phonenumber">Phone Number:</label>
+            <input type="tel" id="phonenumber" size="40">
+            <p id="message3"></p>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" size="40">
+            <p id="message4"></p>
+
+            <button type="button" onclick="validate()">VALIDATE</button>
+        </form>
+    </div>
+
+    <script>
+        function validate() {
+            // Validate Name
+            const name = document.getElementById('name').value;
+            const nameRegex = /^[a-zA-Z\s'-]+$/;
+            const message1 = document.getElementById('message1');
+
+            if (nameRegex.test(name) && name.length >= 3) {
+                message1.innerHTML = 'Valid name!';
+                message1.style.color = 'green';
+            } else {
+                message1.innerHTML = 'Invalid name.';
+                message1.style.color = 'red';
+            }
+            
+            // Validate Age
+            const age = document.getElementById('age').value;
+            const message2 = document.getElementById('message2');
+
+            if (age === '') {
+                message2.innerHTML = 'Age is required.';
+                message2.style.color = 'red';
+            } else if (!isNaN(age) && age >= 6 && age <= 120) {
+                message2.innerHTML = 'Valid age!';
+                message2.style.color = 'green';
+            } else {
+                message2.innerHTML = 'Invalid age.';
+                message2.style.color = 'red';
+            }
+            
+            // Validate Phone Number
+            const phonenumber = document.getElementById('phonenumber').value;
+            const phoneRegex = /^[0-9]{10}$/;
+            const message3 = document.getElementById('message3');
+
+            if (phoneRegex.test(phonenumber)) {
+                message3.innerHTML = 'Valid phone number!';
+                message3.style.color = 'green';
+            } else {
+                message3.innerHTML = 'Invalid phone number.';
+                message3.style.color = 'red';
+            }
+            
+            // Validate Email
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const message4 = document.getElementById('message4');
+
+            if (emailRegex.test(email)) {
+                message4.innerHTML = 'Valid email!';
+                message4.style.color = 'green';
+            } else {
+                message4.innerHTML = 'Invalid email.';
+                message4.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

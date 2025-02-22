@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f9f9f9;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 20px auto;
+            }
+            
+            .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, .4);
+            max-width: 300px;
+            text-align: left;
+        }
+
+        .form-container h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enter Your Details</h2>
+        Enter your name
+        <button onclick="fname()">Enter</button>
+        <p id="m1"></p>
+        Enter your age
+        <button onclick="fage()">Enter</button>
+        <p id="m2"></p>
+        <button onclick="sub()">Submit</button>
+        <p id="m3"></p>
+    </div>
+
+    <script>
+        function fname() {
+            var name = prompt("Enter a name");
+
+            const nameRegex = /^[a-zA-Z\s'-]+$/;
+            const message1 = document.getElementById('m1');
+        
+            if (!name||name<'a') {
+                alert("Name is required");
+            } else if (nameRegex.test(name) && name.length >= 3) {
+                message1.innerHTML = 'Name: ' + name;
+                message1.style.color = 'green';
+            } else {
+                alert("Enter a valid name");
+                /*message1.innerHTML = '';*/
+            }
+        }
+
+        function fage() {
+            var age = prompt("Enter your age");
+
+            const message2 = document.getElementById('m2');
+
+            if (!age) {
+                alert("Age is required");
+            } else if (!isNaN(age) && age >= 6 && age <= 120) {
+                message2.innerHTML = 'Age: ' + age;
+                message2.style.color = 'green';
+            } else {
+                alert("Enter a valid age");
+                /*message2.innerHTML = '';*/
+            }
+        }
+
+        function sub() {
+            if (document.getElementById('m1').innerHTML == '' || document.getElementById('m2').innerHTML == '') {
+                alert("Please fill the form");
+            } else {
+                var n = confirm('Do you want to submit the details?');
+                if (n) {
+                    alert("Response submitted");
+                    document.getElementById("m3").innerHTML="Response submitted";        document.getElementById("m3").style.color='green';
+                } else {
+                    alert("Response cancelled"); document.getElementById("m3").innerHTML="Response cancelled";   document.getElementById("m3").style.color="red";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

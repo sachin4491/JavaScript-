@@ -1,0 +1,24 @@
+<html>
+ <head>
+ <script>
+    var n2;
+    function add(){
+        n2=Number(document.myform.n1.value);
+        n2=n2*(n2+1)/2;
+        document.myform.result.value=n2;
+    }
+ </script>
+ </head>
+  <body>
+    <h1 align="center">sum of number upto a limit</h1>
+    <hr color="red">
+    <form name="myform">
+        <center>
+            number1:<input type="text" name="n1" value="" onchange="add()"><br><br>
+            <input type="button" value="add" onclick="add()"><br><br>
+            result is :
+            <input type="text" name="result" value="0" readonly>
+        </center>
+    </form>
+  </body>
+</html>

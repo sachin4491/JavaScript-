@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hecker</title>
+    <script>
+        function check() {
+            var i, num =(document.myform.n1.value);
+            if (isNaN(num)) {
+            
+                document.myform.result.value ='enter a number';
+                return;
+            }
+            if (num <= 1) {
+                document.myform.result.value = 'not defined';
+                return;
+            }
+            var n = Math.sqrt(num);
+            
+            for (i = 2; i <= n; i++) {
+                if (num % i == 0) {
+                    document.myform.result.value = 'not prime';
+                    return;
+                }
+            }
+            document.myform.result.value = 'prime';
+        }
+    </script>
+</head>
+<body>
+    <h1 align="center">Prime Checker</h1>
+    <hr color="red">
+    <form name="myform">
+        <center>
+            Number: <input type="text" name="n1" onchange="check()"><br><br>
+            Result: <input type="text" name="result" readonly><br><br>
+        </center>
+    </form>
+</body>
+</html>
+

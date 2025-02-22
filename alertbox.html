@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alert Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+        }
+        
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+            max-width: 300px;
+            text-align: left;
+        }
+
+        .form-container h2 {
+            margin: 0 0 20px 0;
+            color: #333;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            margin: 0 auto;
+            border: 1px solid black;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enter Your Details</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <p id="message1"></p>
+        <label for="age">Age:</label>
+        <input type="text" id="age" placeholder="Enter your age">
+        <p id="message2"></p>
+        <button onclick="submitForm()">Submit</button>
+    </div>
+    
+    <script>
+        function submitForm() {
+            let isValid = true;
+            const name = document.getElementById('name').value;
+            const nameRegex = /^[a-zA-Z\s'-]+$/;
+            const message1 = document.getElementById('message1');
+
+            if (nameRegex.test(name) && name.length >= 3) {
+                message1.innerHTML = 'Valid name!';
+                message1.style.color = 'green';
+            } else {
+                message1.innerHTML = 'Invalid name.';
+                message1.style.color = 'red';
+                isValid = false;
+            }
+
+            const age = document.getElementById('age').value;
+            const message2 = document.getElementById('message2');
+
+            if (age === '') {
+                message2.innerHTML = 'Age is required.';
+                message2.style.color = 'red';
+                isValid = false;
+            } else if (!isNaN(age) && age >= 6 && age <= 120) {
+                message2.innerHTML = 'Valid age!';
+                message2.style.color = 'green';
+            } else {
+                message2.innerHTML = 'Invalid age.';
+                message2.style.color = 'red';
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Response submitted');
+            }
+        }
+    </script>
+</body>
+</html>

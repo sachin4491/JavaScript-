@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var state;
+        function check() {
+            state = document.myform.state.options[document.myform.state.selectedIndex].value;
+            switch (state) {
+                case "kerala":
+                    document.myform.capital.value = "Trivandram";
+                    break;
+                case "tamilnadu":
+                    document.myform.capital.value = "Chennai";
+                    break;
+                case "goa":
+                    document.myform.capital.value = "Panaji";
+                    break;
+                default:
+                    document.myform.capital.value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+     <center>
+    <h1>capital selector</h1>
+    <hr color="red">
+   
+    <form name="myform">
+        Select state:
+        <select name="state" size="1"  onchange="check()">
+            <option value="kerala">Kerala</option>
+            <option value="tamilnadu">Tamil Nadu</option>
+            <option value="goa">Goa</option>
+        </select>
+        <br><br>
+        <input type="text" name="capital" placeholder="Capital will appear here" readonly>
+    </form>
+    </center>
+</body>
+</html>
